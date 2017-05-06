@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TP09 | Guillermo Andrés Tolaba</title>
+    </h:head>
+    <p:layout fullPage="true">  
+                <p:layoutUnit position="north" size="275" resizable="false" closable="false" collapsible="false">
+                 <center><img src="head.jpg" alt="Proyecto Los Santos" style="width: 800px; "/></center>
+                </p:layoutUnit>
+        <p:layoutUnit position="west" size="200" header="Menú" collapsible="true">
+                     <p:menu>
+                        <p:submenu label="Trabajo Práctico 9">
+                            <p:submenu label="Triángulos"/>
+                            <p:menuitem value="Zapatillas" url="/faces/zapatillas.xhtml" />
+                            <p:menuitem value="Producto" url="/faces/producto.xhtml" />
+                            <p:menuitem value="Libros" url="/faces/libros.xhtml" />
+                        </p:submenu>
+                    </p:menu>               
+            
+        </p:layoutUnit>
+    </p:layout>     
+    <p:layoutUnit position="center"> 
+                <center><p:panel id="pnlInicio" header="Promedios" style="width: 600px;" footer="TPRect">
+            <h:form id="frmLogin">
+                <h:panelGrid id="tblLogin" columns="3">
+                    <p:outputLabel id="lblNUsuario" value ="Ingrese el punto A:"/>
+                    <p:inputText id="inputX" value ="#{triangulo.x1}" required="true"/>
+                    <p:inputText id="inputY" value ="#{triangulo.y1}" required="true"/>
+                    <p:outputLabel id="lblNUsuario2" value ="Ingrese el punto B:"/>
+                    <p:inputText id="inputX2" value ="#{triangulo.x2}" required="true"/>
+                    <p:inputText id="inputY2" value ="#{triangulo.y2}" required="true"/>
+                    <p:outputLabel id="lblNUsuario3" value ="Ingrese el punto C:"/>
+                    <p:inputText id="inputX3" value ="#{triangulo.x3}" required="true"/>
+                    <p:inputText id="inputY3" value ="#{triangulo.y3}" required="true"/>
+
+                    <p:commandButton id="InicioSesion" value = "Ingresar puntos" actionListener="#{triangulo.ingresarPuntos()}" update=":dialog" oncomplete ="PF('dialogid').show()"/>        
+                </h:panelGrid> 
+                
+            </h:form>       
+        </p:panel></center>
+        </p:layoutUnit>  
+        <p:dialog id="dialog" header="Advertencia" widgetVar="dialogid">
+            <h:form id="frmLogn">
+                <p:outputLabel id="lblNUsuario4" value ="#{triangulo.mostrarMensaje()}"/>
+            </h:form>
+        </p:dialog>
+        <br />
+    
+    
+</html>
+
