@@ -36,7 +36,7 @@
                     <p:inputText id="inputX3" value ="#{triangulo.x3}" required="true"/>
                     <p:inputText id="inputY3" value ="#{triangulo.y3}" required="true"/>
 
-                    <p:commandButton id="InicioSesion" value = "Ingresar puntos" actionListener="#{triangulo.ingresarPuntos()}" update=":frmLogn" oncomplete ="PF('dialogid').show()"/>        
+                    <p:commandButton id="InicioSesion" value = "Ingresar puntos" actionListener="#{triangulo.ingresarPuntos()}" update=":dialog" oncomplete ="PF('dialogid').show()"/>        
                 </h:panelGrid> 
                 
             </h:form>       
@@ -44,7 +44,7 @@
         </p:layoutUnit>  
         <p:dialog id="dialog" header="Advertencia" widgetVar="dialogid">
             <h:form id="frmLogn">
-            <p:outputLabel id="lblNUsuario4" value ="#{triangulo.mostrarMensaje()}"/>
+                <p:outputLabel id="lblNUsuario4" value ="#{triangulo.mostrarMensaje()}"/>
             </h:form>
         </p:dialog>
         <br />

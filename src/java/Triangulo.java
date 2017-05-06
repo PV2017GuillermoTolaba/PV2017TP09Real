@@ -17,6 +17,7 @@ public class Triangulo {
     private Puntos A, B, C;
     private int X1, X2, X3, Y1, Y2, Y3;
     private boolean ingresado = false;
+    private String mensajeMostrado = "";
     public Triangulo() {
     }
 
@@ -26,11 +27,13 @@ public class Triangulo {
         B = new Puntos(X2, Y2);
         C = new Puntos(X3, Y3);
         setIngresado(true);
+        setMensajeMostrado(mostrarMensaje());
     }
     
     public float obtenerDistanciaPuntos(Puntos D, Puntos E){
         return (float) (Math.sqrt(((D.getX() - E.getX())*(D.getX() - E.getX())) +(D.getY() - E.getY())*(D.getY() - E.getY())));
     }
+          
     public String mostrarMensaje()
     {
         String test = ""; 
@@ -40,7 +43,8 @@ public class Triangulo {
             ingresado = false;
             return test;
         }
-        return "No se ha podido formar el triángulo. Los puntos son colineales.";
+        test = "No se ha podido formar el triángulo. Los puntos son colineales.";
+        return test;
     }
     public boolean comprobarTriangulo()
     {
@@ -51,9 +55,10 @@ public class Triangulo {
         //return true;
         /*        pend[0] = (B.getY()-A.getY()) / (B.getX()-A.getX());
         pend[1] = (C.getY()-A.getY())/ (C.getX()-A.getX()) ;*/
-       // pend[2] = (C.getY()-B.getY()) / (C.getX()-B.getX());
-        if(pend[0] == pend[1]) return false;
-        else return true;
+        // pend[2] = (C.getY()-B.getY()) / (C.getX()-B.getX());
+        if(pend[0] != pend[1]) return true;
+        else return false;
+//        return pend[0] != pend[1];
 //        return (pend[0] == pend[1]);
     }
     
@@ -136,6 +141,14 @@ public class Triangulo {
 
     public void setY3(int Y3) {
         this.Y3 = Y3;
+    }
+
+    public String getMensajeMostrado() {
+        return mensajeMostrado;
+    }
+
+    public void setMensajeMostrado(String MensajeMostrado) {
+        this.mensajeMostrado = MensajeMostrado;
     }
     
 }
